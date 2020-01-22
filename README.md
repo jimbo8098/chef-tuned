@@ -1,16 +1,16 @@
-#Tuned Chef Cookbook
+# Tuned Chef Cookbook
 
 [![Build Status](https://travis-ci.org/autotraderuk/chef-tuned.svg?branch=master)](https://travis-ci.org/autotraderuk/chef-tuned)
 [![Code Climate](https://codeclimate.com/github/autotraderuk/chef-tuned/badges/gpa.svg)](https://codeclimate.com/github/autotraderuk/chef-tuned)
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/autotraderuk/chef-tuned?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-#Description
+# Description
 
 Installs tuned and enables/disables tuned profiles. For more information on tuned please see the [Red Hat documentation](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Power_Management_Guide/Tuned.html) on this daemon
 
-#Usage
+# Usage
 
-###Attribute overview
+### Attribute overview
 
 Define some attributes to be used by the 'tuned_profile' resource.
 Attributes have 3 levels
@@ -29,7 +29,7 @@ default['tuned']['profile']['myprofile']['cpu']['governor'] = 'performance'
 ````
 - creates an key value entry in the profile file under the '[cpu]' heading
 
-###Attribute example
+### Attribute example
 
 
 ````
@@ -88,14 +88,14 @@ transparent_hugepage.defrag=never
 
 Installs tuned if not already installed
 
-###create and enable a profile
+### Create and enable a profile
 ````
 tuned_profile 'myprofile' do
  action [:create, :enable]
 end
 ````
 
-###enable a default system profile
+### enable a default system profile
 See Red Hat Documentation for availale defaults
 ````
 tuned_profile 'balanced' do
@@ -103,21 +103,21 @@ tuned_profile 'balanced' do
 end
 ````
 
-###disable a profile (reverts to default)
+### disable a profile (reverts to default)
 ````
 tuned_profile 'myprofile' do
   action [:disable]
 end
 ````
 
-###default to tuned recommended profile
+### default to tuned recommended profile
 ````
 tuned_profile 'myprofile' do
   action [:default]
 end
 ````
-###Library Provider overview
-####Property:
+### Library Provider overview
+#### Property:
 
 
 Name | Description | Default
@@ -126,7 +126,7 @@ Name | Description | Default
 `plugins` | Define the _plugins_ profile definition | {}
 
 
-####Property example:
+#### Property example:
 ```
 tuned_profile 'lwrp_profile' do
   main (include: 'latency-performance')
@@ -138,7 +138,7 @@ tuned_profile 'lwrp_profile' do
 end
 ```
 
-#Contributing
+# Contributing
 1. Fork it
 2. Create your feature branch + tests + Readme (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
